@@ -128,7 +128,7 @@ hmm <- function(Xs,              # data
       Xs = list(Xs)
   }
 
-  if (any(sapply(Xs, function(X) class(X)!='matrix'))){
+  if (any(sapply(Xs, function(X) class(X)[1]!='matrix'))){
       stop('Xs must be matrix or list of matrices')
   }
 
