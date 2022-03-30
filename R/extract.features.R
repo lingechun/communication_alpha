@@ -62,6 +62,10 @@ extractFeature <- function(filename, config = config) {
 #' @return speech object
 #' @export
 labelUtterances <- function(features, labels) {
+    missing_index <- which(is.na(labels))
+    labels <- labels[-missing_index]
+    features <- features[-missing_index]
+    
     if ( length(features) != length(labels) )
         stop("Verify the number of labels and different speech units")
     
